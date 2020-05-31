@@ -47,8 +47,6 @@ function generatePassword() {
       Math.floor(Math.random() * passGrp.length)
     );
   }
-  return userPass;
 }
-
 // Write generated password on page
 document.getElementById("password").innerHTML = userPass;
