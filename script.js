@@ -6,10 +6,13 @@ let symbols = "!@#$%^&*()_+-=";
 let userPass = "";
 let passGrp = "";
 
-// Assignment Code
+// Start Password Generation
 document.getElementById("generate").addEventListener("click", generatePassword);
 
-// var generateBtn = document.querySelector("#generate");
+// Call function to generate password 
+generatePassword();
+
+
 function generatePassword() {
   // Set Password length
   let passLength = prompt("Please enter your password length between 8 and 128 numbers");
@@ -17,11 +20,12 @@ function generatePassword() {
   if (passLength < 8 || passLength > 128) {
     alert("Please enter your password length between 8 and 128 numbers!");
   }
+
   // Set Password options
   let selectAbc = confirm("Would you like to use lower case letters?");
   let selectAbcUpper = confirm("Would you like to use upper case letters?");
   let selectNum = confirm("Would you like to use numbers?");
-  let selectSymbols = confirm("Would you like to user special characters?");
+  let selectSymbols = confirm("Would you like to use symbols?");
 
 
   //Generate password
@@ -45,10 +49,6 @@ function generatePassword() {
   }
   return userPass;
 }
-
-//Call function to generate password 
-generatePassword();
-
 
 // Write generated password on page
 document.getElementById("password").innerHTML = userPass;
