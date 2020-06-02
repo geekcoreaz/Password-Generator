@@ -2,7 +2,7 @@
 let abc = "abcdefghijklmnopqrstuvwxyz";
 let abcUpper = abc.toUpperCase();
 let num = "0123456789";
-let symbols = "!@#$%^&*()_+-=";
+let symbols = "!@#$%^&*()_+-=<>?{}";
 let userPass = "";
 let passGrp = "";
 
@@ -17,7 +17,7 @@ function generatePassword() {
   let passLength = prompt("Please enter your password length between 8 and 128 numbers.");
 
   if (passLength < 8 || passLength > 128) {
-    alert("Please start over and enter your password length between 8 and 128 numbers!");
+    alert("Your password length must be between 8 and 128 numbers!\nPlease start over.");
   } else {
     // Set Password options
     let selectAbc = confirm("Would you like to use lower case letters?");
@@ -39,6 +39,9 @@ function generatePassword() {
     }
     if (selectSymbols) {
       passGrp += symbols;
+    }
+    if (passGrp.length == 0) {
+      alert("You must select a password option.\nPlease start over.");
     }
     for (let i = 0; i < passLength; i++) {
       userPass += passGrp.charAt(Math.floor(Math.random() * passGrp.length));
